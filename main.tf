@@ -93,14 +93,12 @@ resource "aws_nat_gateway" "main" {
     }
   )
 
-
  # To ensure proper ordering, it is recommended to add an explicit dependency
   # on the Internet Gateway for the VPC.
   depends_on = [aws_internet_gateway.gw]
 }
 
 # route table public 
-
 
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
@@ -126,7 +124,6 @@ resource "aws_route_table" "private" {
     }
   )
 }
-
 
 # route table for database
 resource "aws_route_table" "database" {
